@@ -1,5 +1,5 @@
 
-const tagsElement = document.getElementById('tags');
+const tagsEl = document.getElementById('tags');
 const textarea = document.getElementById('textarea');
 
 textarea.focus();
@@ -20,18 +20,17 @@ textarea.addEventListener('keyup', (e) => {
 
 
 function createTags(input) {
-    const tags = input.split(',').filter(tag => tag.trim() !== '');
-
-    tagsElement.innerHTML = '';
+    const tags = input.split(',').filter(tag => tag.trim() !== ''); //.map(tag => tag.trim());
+    
+    tagsEl.innerHTML = ''
 
     tags.forEach(tag => {
-        const tagElement = document.createElement('span');
-        tagElement.classList.add('tag');
-        tagElement.innerHTML = tag;
-        tagsElement.appendChild(tagElement);
-    });  
+        const tagEl = document.createElement('span')
+        tagEl.classList.add('tag')
+        tagEl.innerText = tag
+        tagsEl.appendChild(tagEl)
+    })
 }
-
 function randomSelect() {
     const times = 30;
 
